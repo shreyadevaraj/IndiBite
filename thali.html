@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build Your Own Thali | IndiBite</title>
+  <link rel="stylesheet" href="thali.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <img src="logo.png" class="header-logo">
+    <h1>Build Your Own Thali</h1>
+    <p class="subtitle">Create your perfect Indian meal</p>
+  </header>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="thali.html" class="active">Thali Builder</a>
+  </nav>
+
+  <!-- THALI BUILDER SECTION -->
+  <section class="thali-section">
+
+    <!-- LEFT SIDE: OPTIONS -->
+    <div class="builder-options">
+
+      <h2>Choose Your Items</h2>
+
+      <div class="option-block">
+        <h3>Main Curry</h3>
+        <div class="item" onclick="selectItem('main', 'Paneer Butter Masala')">Paneer Butter Masala</div>
+        <div class="item" onclick="selectItem('main', 'Chole Masala')">Chole Masala</div>
+        <div class="item" onclick="selectItem('main', 'Dal Tadka')">Dal Tadka</div>
+      </div>
+
+      <div class="option-block">
+        <h3>Bread</h3>
+        <div class="item" onclick="selectItem('bread', 'Naan')">Naan</div>
+        <div class="item" onclick="selectItem('bread', 'Roti')">Roti</div>
+        <div class="item" onclick="selectItem('bread', 'Paratha')">Paratha</div>
+      </div>
+
+      <div class="option-block">
+        <h3>Side Dish</h3>
+        <div class="item" onclick="selectItem('side', 'Curd')">Curd</div>
+        <div class="item" onclick="selectItem('side', 'Salad')">Salad</div>
+        <div class="item" onclick="selectItem('side', 'Pickle')">Pickle</div>
+      </div>
+
+      <div class="option-block">
+        <h3>Dessert</h3>
+        <div class="item" onclick="selectItem('dessert', 'Gulab Jamun')">Gulab Jamun</div>
+        <div class="item" onclick="selectItem('dessert', 'Kheer')">Kheer</div>
+        <div class="item" onclick="selectItem('dessert', 'Rasgulla')">Rasgulla</div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE: PREVIEW -->
+    <div class="thali-preview">
+      <h2>Your Thali</h2>
+      <div class="preview-box">
+        <p><strong>Main Curry:</strong> <span id="main">None</span></p>
+        <p><strong>Bread:</strong> <span id="bread">None</span></p>
+        <p><strong>Side:</strong> <span id="side">None</span></p>
+        <p><strong>Dessert:</strong> <span id="dessert">None</span></p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 IndiBite | Flavours of India
+  </footer>
+
+  <script>
+    function selectItem(type, name) {
+      document.getElementById(type).innerText = name;
+    }
+  </script>
+
+</body>
+</html>

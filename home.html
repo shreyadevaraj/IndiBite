@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IndiBite | Flavours of India</title>
+  <title>IndiBite | Home</title>
   <style>
     /* Reset */
     * {
@@ -19,6 +19,7 @@
       line-height: 1.6;
     }
 
+    /* Header */
     header {
       text-align: center;
       padding: 30px 20px;
@@ -29,6 +30,7 @@
       width: 400px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      margin: 20px;
       transition: transform 0.3s ease;
     }
 
@@ -39,13 +41,14 @@
     header h1 {
       font-size: 3rem;
       margin-top: 15px;
-      color: #d97706; /* saffron tone */
+      color: #d97706;
       font-family: "Playfair Display", serif;
       letter-spacing: 1px;
     }
 
+    /* Navbar */
     nav {
-      background-color: #3b1f0d; /* deep brown */
+      background-color: #3b1f0d;
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -72,40 +75,60 @@
     }
 
     nav a:hover {
-      color: #fbbf24; /* golden hover */
+      color: #fbbf24;
       transform: scale(1.1);
     }
 
     main {
       text-align: center;
       padding: 40px 20px;
-      background-color: #fffaf3;
     }
 
-    article {
+    /* Hero Section */
+    .hero {
       background-color: #fff;
-      margin: 25px auto;
+      padding: 40px;
+      width: 75%;
+      margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      color: #a16207;
+    }
+
+    .hero p {
+      margin-top: 10px;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    /* Home page sections */
+    .section {
+      background-color: #fff;
+      margin: 30px auto;
       padding: 25px;
       width: 70%;
       max-width: 700px;
       border-radius: 12px;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: 0.3s;
     }
 
-    article:hover {
+    .section:hover {
       transform: translateY(-5px);
       box-shadow: 0 6px 20px rgba(0,0,0,0.15);
     }
 
-    article h2 {
+    .section h2 {
       color: #a16207;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    article p {
+    .section p {
       color: #444;
-      font-size: 1rem;
     }
 
     footer {
@@ -124,36 +147,53 @@
   </style>
 </head>
 <body>
+
   <header>
-    <img src="side1.png" alt="IndiBite Logo" style="width:400px;height: 600px; margin: 20px;">
-    <img src="logo.png" alt="IndiBite Logo" style="width:400px; height: 600px;margin: 20px;">
-    <img src="side2.png" alt="IndiBite Logo" style="width:400px;height: 600px; margin: 20px;">
+    <img src="side1.png" alt="Side Art" style="height:600px">
+    <img src="logo.png" alt="IndiBite Logo" style="height:600px">
+    <img src="side2.png" alt="Side Art" style="height:600px">
     <h1>IndiBite</h1>
   </header>
 
   <nav>
     <ul>
-      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
       <li><a href="location.html">Location</a></li>
       <li><a href="blog.html">Blog</a></li>
-      
     </ul>
   </nav>
 
   <main>
-    <article>
-      <h2>20% Off This Weekend</h2>
-      <p>Come down to <b>IndiBite</b> and enjoy 20% off your meal. Taste India’s rich flavours made fresh for you!</p>
-    </article>
 
-    <article>
-      <h2>Our New Menu</h2>
-      <p>We’ve added new dishes inspired by regional Indian kitchens — from spicy Chettinad curries to creamy Lucknowi kebabs.</p>
-    </article>
+    <!-- Hero -->
+    <div class="hero">
+      <h2>Welcome to IndiBite</h2>
+      <p>Experience India’s flavours — from rich spices to soulful comfort food. Freshly served with love.</p>
+    </div>
+
+    <!-- About -->
+    <div class="section">
+      <h2>About Us</h2>
+      <p>IndiBite brings authentic Indian cuisine made with traditional recipes and regional spices. We celebrate the diversity of India through food.</p>
+    </div>
+
+    <!-- Specials -->
+    <div class="section">
+      <h2>Today's Specials</h2>
+      <p>✨ Chettinad Pepper Chicken<br>✨ Paneer Lababdar<br>✨ Hyderabadi Biryani<br>✨ Coconut Lassi</p>
+    </div>
+
+    <!-- Offer -->
+    <div class="section">
+      <h2>Weekend Offer</h2>
+      <p>Enjoy <b>20% off</b> your meal this weekend! Come taste India like never before.</p>
+    </div>
+
   </main>
 
   <footer>
     <p>© 2025 <span>IndiBite</span> | Flavours of India</p>
   </footer>
+
 </body>
 </html>
