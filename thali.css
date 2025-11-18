@@ -1,126 +1,114 @@
-/* RESET */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
 }
 
 body {
-  background: #fff8e1; /* soft yellow cream */
-  padding: 30px;
-  color: #4a3728; /* warm brown */
+  font-family: "Poppins", sans-serif;
+  background-color: #fffaf3;
+  color: #3b1f0d;
 }
 
-/* PAGE TITLE */
-h1 {
+/* Header */
+header {
   text-align: center;
-  font-size: 36px;
-  margin-bottom: 15px;
-  color: #b8860b;
-  font-weight: 600;
+  padding: 30px 20px;
 }
 
-/* THALI IMAGE */
-.thali-hero {
-  width: 100%;
-  max-width: 450px;
-  margin: 0 auto;
-  display: block;
-  border-radius: 15px;
+header h1 {
+  font-size: 3rem;
+  color: #a16207;
+  font-family: "Playfair Display", serif;
 }
 
-/* SECTION TITLE */
-.section-title {
-  margin: 35px 0 15px;
-  font-size: 24px;
-  font-weight: 600;
-  color: #8b5e3c;
+.subtitle {
+  margin-top: 8px;
+  color: #7a4a12;
+  font-size: 1.2rem;
 }
 
-/* CLEAN ROW */
-.thali-row {
+/* Thali Image Box */
+.thali-container {
   display: flex;
-  gap: 20px;
-  padding: 10px 0;
-  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 25px;
 }
 
-/* ITEM CARD */
+.thali-box {
+  width: 500px;
+  height: 300px;
+  background: #fff;
+  border-radius: 12px;
+  border: 2px dashed #d8b466;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a16207;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Ingredients Section */
+.ingredients-section {
+  margin: 40px auto;
+  text-align: center;
+}
+
+.ingredients-section h2 {
+  font-size: 2rem;
+  color: #a16207;
+  margin-bottom: 20px;
+}
+
+/* Grid for items */
+.ingredients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  width: 80%;
+  margin: auto;
+}
+
+/* Card design */
 .item-card {
-  width: 180px;
-  background: white;
+  background: #fff;
   padding: 15px;
   border-radius: 12px;
-  text-align: center;
-  border: 1px solid #f1d7a1;
-  transition: 0.25s ease;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: transform .3s ease, box-shadow .3s ease;
 }
 
 .item-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
-/* IMAGE */
 .item-card img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-/* NAME */
-.item-card h3 {
-  margin-top: 10px;
-  font-size: 18px;
-  color: #5b3a29;
-}
-
-/* BUTTON */
-.add-btn {
-  margin-top: 10px;
-  padding: 8px 14px;
-  background: #e7b961;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  color: white;
-  font-size: 14px;
-  font-weight: 500;
-  transition: background 0.3s ease;
-}
-
-.add-btn:hover {
-  background: #d29d3a;
-}
-
-/* SELECTED AREA */
-.thali-box {
-  margin-top: 40px;
-  background: #fff3c9;
-  padding: 20px;
-  border-radius: 15px;
-  border: 1px solid #f0d59a;
-}
-
-.thali-box h2 {
-  font-size: 22px;
-  color: #8b5e3c;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
   margin-bottom: 10px;
 }
 
-.selected-items {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+.item-card h3 {
+  color: #7a4a12;
+  margin-bottom: 10px;
 }
 
-.selected-item {
-  background: white;
+/* Buttons */
+button {
+  background-color: #a16207;
+  color: white;
   padding: 8px 14px;
-  border-radius: 20px;
-  font-size: 14px;
-  color: #5b3a29;
-  border: 1px solid #e4c48d;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background .3s ease;
+}
+
+button:hover {
+  background-color: #d97706;
 }
