@@ -3,86 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Build Your Own Thali | IndiBite</title>
+  <title>IndiBite | Menu</title>
   <link rel="stylesheet" href="thali.css">
 </head>
+
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <img src="thali.png" class="header-logo" style="height:600px">
-    <h1>Build Your Own Thali</h1>
-    <p class="subtitle">Create your perfect Indian meal</p>
-  </header>
-
-  <!-- NAV -->
-  <nav class="nav">
-    <a href="home.html">Home</a>
-    <a href="menu.html">Menu</a>
-    <a href="thali.html" class="active">Thali Builder</a>
+  <!-- NAVBAR -->
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="menu.html" >Menu</a></li>
+      <li><a href="thali.html"class="active">Build Your Own Thali</a></li>
+      <li><a href="order.html">Order Now</a></li>
+    </ul>
   </nav>
 
-  <!-- THALI BUILDER SECTION -->
-  <section class="thali-section">
+  <!-- MENU -->
+  <div class="menu-container">
+    <h1>Build Your Own Thali</h1>
+    <p class="subtitle">Customize your thali with flavours you love</p>
 
-    <!-- LEFT SIDE: OPTIONS -->
-    <div class="builder-options">
+  </div>
+  <div class="thali-grid">
+  <img src="ricebowl.png" alt="" style="height: 550px;margin: 20px;width: 450px;">
+  <img src="poori.png" alt="" style="height: 550px;margin: 20px;width: 450px;">
+  <img src="rasam.png" alt="" style="height: 550px;margin: 20px;width: 450px;">
+  <img src="roti.png" alt="" class="lower" style="height: 550px;margin: 20px;width: 450px;">
+  <img src="sambar.png" alt="" class="lower" style="height: 550px;margin: 20px;width: 450px;">
+  <img src="curd.png" alt="" style="height: 550px;margin: 20px;width: 450px;">
+  <img src="dal.png" alt="" style="height: 550px;margin: 20px;width: 450px;">
+  <img src="channa.png" alt="" style="height: 550px;margin: 20px;width: 450px;" >
+  <img src="sabji.png" alt="" style="height: 550px;margin: 20px;width: 450px;" >
+</div>
 
-      <h2>Choose Your Items</h2>
-
-      <div class="option-block">
-        <h3>Main Curry</h3>
-        <div class="item" onclick="selectItem('main', 'Paneer Butter Masala')">Paneer Butter Masala</div>
-        <div class="item" onclick="selectItem('main', 'Chole Masala')">Chole Masala</div>
-        <div class="item" onclick="selectItem('main', 'Dal Tadka')">Dal Tadka</div>
-      </div>
-
-      <div class="option-block">
-        <h3>Bread</h3>
-        <div class="item" onclick="selectItem('bread', 'Naan')">Naan</div>
-        <div class="item" onclick="selectItem('bread', 'Roti')">Roti</div>
-        <div class="item" onclick="selectItem('bread', 'Paratha')">Paratha</div>
-      </div>
-
-      <div class="option-block">
-        <h3>Side Dish</h3>
-        <div class="item" onclick="selectItem('side', 'Curd')">Curd</div>
-        <div class="item" onclick="selectItem('side', 'Salad')">Salad</div>
-        <div class="item" onclick="selectItem('side', 'Pickle')">Pickle</div>
-      </div>
-
-      <div class="option-block">
-        <h3>Dessert</h3>
-        <div class="item" onclick="selectItem('dessert', 'Gulab Jamun')">Gulab Jamun</div>
-        <div class="item" onclick="selectItem('dessert', 'Kheer')">Kheer</div>
-        <div class="item" onclick="selectItem('dessert', 'Rasgulla')">Rasgulla</div>
-      </div>
-
-    </div>
-
-    <!-- RIGHT SIDE: PREVIEW -->
-    <div class="thali-preview">
-      <h2>Your Thali</h2>
-      <div class="preview-box">
-        <p><strong>Main Curry:</strong> <span id="main">None</span></p>
-        <p><strong>Bread:</strong> <span id="bread">None</span></p>
-        <p><strong>Side:</strong> <span id="side">None</span></p>
-        <p><strong>Dessert:</strong> <span id="dessert">None</span></p>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    © 2025 IndiBite | Flavours of India
-  </footer>
-
-  <script>
-    function selectItem(type, name) {
-      document.getElementById(type).innerText = name;
-    }
-  </script>
 
 </body>
 </html>

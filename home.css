@@ -135,4 +135,7 @@
 
     footer span {
       color: #facc15;
-    }
+    }nav a.active {
+  color: #fbbf24;  
+ 
+}
