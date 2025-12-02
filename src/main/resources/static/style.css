@@ -126,3 +126,21 @@ nav a.active {
   font-size: 1.1rem;
 }
 
+/* Add to Cart Button */
+.add-btn {
+  background-color: #d97706;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.add-btn:hover {
+  background-color: #b45309;
+}
+
+

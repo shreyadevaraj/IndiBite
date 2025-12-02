@@ -125,28 +125,22 @@ nav a.active {
   font-weight: bold;
   font-size: 1.1rem;
 }
-.thali-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;   /* centers all images horizontally */
-  gap: 30px;                 /* space between images */
-  padding-left: 50px;        /* adds left margin */
-  margin-top: 40px;
-}
 
-.thali-grid img {
-  height: 550px;
-}
-.thali-grid img {
-  height: 550px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Add to Cart Button */
+.add-btn {
+  background-color: #d97706;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
   cursor: pointer;
+  margin-top: 10px;
+  font-weight: 600;
+  transition: background-color 0.3s;
 }
 
-.thali-grid img:hover {
-  transform: scale(1.08);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+.add-btn:hover {
+  background-color: #b45309;
 }
-
 
 

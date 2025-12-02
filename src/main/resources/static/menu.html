@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IndiBite | Menu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html" class="active">Menu</a></li>
+      <li><a href="thali.html">Build Your Own Thali</a></li>
+      <li><a href="order.html">Order Now</a></li>
+    </ul>
+  </nav>
+
+  <!-- MENU -->
+  <div class="menu-container">
+    <h1>Our Menu</h1>
+    <p class="subtitle">Authentic Indian flavours crafted with love</p>
+
+    <div id="menu-content">
+      <!-- Dynamic content will be loaded here -->
+      <p style="text-align:center;">Loading menu...</p>
+    </div>
+
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      fetch('/api/menu')
+        .then(response => response.json())
+        .then(data => {
+          const menuContent = document.getElementById('menu-content');
+          menuContent.innerHTML = '';
+
+          const categories = {};
+          data.forEach(item => {
+            // Skip Thali Component items - they're shown in Build Your Own Thali page
+            if (item.category === 'Thali Component') {
+              return;
+            }
+            if (!categories[item.category]) {
+              categories[item.category] = [];
+            }
+            categories[item.category].push(item);
+          });
+
+          for (const [category, items] of Object.entries(categories)) {
+            const categoryDiv = document.createElement('div');
+            categoryDiv.className = 'category';
+
+            const title = document.createElement('h2');
+            title.innerText = category;
+            categoryDiv.appendChild(title);
+
+            const itemsDiv = document.createElement('div');
+            itemsDiv.className = 'items';
+
+            items.forEach(item => {
+              const card = document.createElement('div');
+              card.className = 'item-card';
+
+              card.innerHTML = `
+                            <img src="${item.imageUrl}" alt="${item.name}">
+                            <p class="item-name">${item.name}</p>
+                            <p class="price">₹${item.price}</p>
+                            <button onclick="addToCart(${item.id}, '${item.name}', ${item.price})" class="add-btn">Add to Cart</button>
+                        `;
+              itemsDiv.appendChild(card);
+            });
+
+            categoryDiv.appendChild(itemsDiv);
+            menuContent.appendChild(categoryDiv);
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching menu:', error);
+          document.getElementById('menu-content').innerHTML = '<p>Error loading menu. Please try again later.</p>';
+        });
+    });
+
+    function addToCart(id, name, price) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const existingItem = cart.find(item => item.id === id);
+
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({ id: id, name: name, price: price, quantity: 1 });
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(name + ' added to cart!');
+    }
+  </script>
+
+</body>
+
+</html>

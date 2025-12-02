@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndiBite | Order</title>
+    <link rel="stylesheet" href="order.css">
+    <link rel="stylesheet" href="style.css"> <!-- Reuse navbar styles -->
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="thali.html">Build Your Own Thali</a></li>
+            <li><a href="order.html" class="active">Order Now</a></li>
+        </ul>
+    </nav>
+
+    <div class="order-container">
+        <h1>Your Order</h1>
+
+        <div id="cart-items">
+            <!-- Cart items will be displayed here -->
+            <p>Your cart is empty.</p>
+        </div>
+
+        <div id="order-summary" style="display:none;">
+            <h3>Total: ₹<span id="total-amount">0</span></h3>
+
+            <form id="order-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <textarea id="address" required></textarea>
+                </div>
+                <button type="submit" class="checkout-btn">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            loadCart();
+        });
+
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartContainer = document.getElementById('cart-items');
+            const orderSummary = document.getElementById('order-summary');
+            const totalSpan = document.getElementById('total-amount');
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+                orderSummary.style.display = 'none';
+                return;
+            }
+
+            cartContainer.innerHTML = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'cart-item';
+                itemDiv.innerHTML = `
+                <span>${item.name} (x${item.quantity})</span>
+                <span>₹${item.price * item.quantity}</span>
+                <button onclick="removeFromCart(${index})" class="remove-btn">Remove</button>
+            `;
+                cartContainer.appendChild(itemDiv);
+                total += item.price * item.quantity;
+            });
+
+            totalSpan.innerText = total;
+            orderSummary.style.display = 'block';
+        }
+
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+        }
+
+        document.getElementById('order-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (cart.length === 0) {
+                alert("Cart is empty!");
+                return;
+            }
+
+            const orderData = {
+                customerName: document.getElementById('name').value,
+                customerPhone: document.getElementById('phone').value,
+                customerAddress: document.getElementById('address').value,
+                items: cart.map(item => ({
+                    menuItemId: item.id,
+                    quantity: item.quantity
+                }))
+            };
+
+            fetch('/api/orders', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(orderData)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('Network response was not ok.');
+                })
+                .then(data => {
+                    alert('Order placed successfully! Order ID: ' + data.id);
+                    localStorage.removeItem('cart');
+                    window.location.href = 'index.html';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to place order.');
+                });
+        });
+    </script>
+</body>
+
+</html>
